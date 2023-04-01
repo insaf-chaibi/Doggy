@@ -55,13 +55,13 @@
                         Tunisia's native dog breed, is misunderstood as wild and dangerous, resulting in the local
                         population being highly reluctant to adopt these animals.</p>
                         @if (Route::has('login'))
-                            @auth 
+                            @auth
                             <a href="{{ url('/home') }}" class="btn">Adopt Now &#8594;</a>
                             @else
                             <a href="{{ route('login') }}" class="btn">Adopt Now &#8594;</a>
                             @endauth
                         @endif
-                    </div> 
+                    </div>
                     <div class="col-6">
                         <img src="images/back.png" width=70%>
                     </div>
@@ -77,7 +77,7 @@
                         fighting to give stray animals a better life in Tunisia. Despite its smart, social personality,
                         Tunisia's native dog breed, is misunderstood as wild and dangerous, resulting in the local
                         population being highly reluctant to adopt these animals.</p>
-                        
+
                     </div>
                     <div class="col">
                         <h3>What We Do</h3>

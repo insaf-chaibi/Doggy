@@ -27,4 +27,11 @@ class dog extends Model
         }
         return asset('storage/' . $value);
     }
+
+    public  function  dogs(){
+        return $this->hasMany(AdoptionRequest::class);
+
+    }
+
+
 }

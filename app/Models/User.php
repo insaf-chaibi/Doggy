@@ -48,6 +48,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Dog');
     }
+    public function adoptionRequests()
+    {
+        return $this->hasMany(AdoptionRequest::class);
+    }
 
 
 }

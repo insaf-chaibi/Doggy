@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\DogController::class, 'index'])->name(
 Route::get('/profile', [App\Http\Controllers\UserController::class ,'profile'])->name('profile');
 Route::get('/addDogForAdoption', [App\Http\Controllers\DogController::class, 'create'])->name('addDogForAdoption');
 Route::get('/myDogs', [App\Http\Controllers\UserController::class, 'myDogs'])->name('myDogs');
-Route::get('/adopt', [App\Http\Controllers\DogController::class, 'adopt'])->name('adopt');
+Route::post('/adopt/{id?}', [App\Http\Controllers\DogController::class, 'adopt'])->name('adopt');
 Route::get('/editDog', [App\Http\Controllers\DogController::class, 'edit'])->name('editDog');
 Route::get('/freeConsultation', [App\Http\Controllers\DogController::class, 'freeConsultation'])->name('freeConsultation');
 Route::get('/dogsBreeds', [App\Http\Controllers\DogController::class, 'dogsBreeds'])->name('dogsBreeds');
@@ -35,5 +35,5 @@ Route::post('/predictImage',  [App\Http\Controllers\PredictController::class, 'p
 Route::get('/chatbot', function () {
     return view('freeConsultation');
 });
-    
-Route::match(['get', 'post'], '/botman', 'ChatBotController@handle');
+
+

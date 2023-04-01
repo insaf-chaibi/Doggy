@@ -9,6 +9,10 @@
                 <div class="alert alert-success" role="alert">
                     {{$message}}
                 </div>
+            @elseif($message = Session::get('failed'))
+                <div class="alert alert-danger" role="alert">
+                    {{$message}}
+                </div>
             @endif
         </div>
         @foreach ($dogs as $item)
@@ -22,7 +26,7 @@
                     <p>Gender : {{ $item->gender }}</p>
                     <p>Vaccinated : {{ $item->vaccinated }}</p>
 
-                    <form action="{{ url('/adopt', $item->id)}}" method="POST">
+                    <form action="{{ route('adopt', $item->id)}}" method="POST">
                         @csrf
                         <button type="submit" class="btn" >Adopt</button>
                     </form>

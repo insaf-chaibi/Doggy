@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ImageController extends Controller
+class PredictController extends Controller
 {
-    public function index()
+ /*   public function index()
     {
         return view('dogsbreeds');
     }
@@ -25,6 +25,6 @@ class ImageController extends Controller
         // Return a response containing the URL of the stored image file
         $url = Storage::url($path);
         return response()->json(['url' => $url]);
-    }
+    }*/
 
 }
