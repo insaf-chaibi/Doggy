@@ -27,6 +27,9 @@ Route::get('/profile', [App\Http\Controllers\UserController::class ,'profile'])-
 Route::get('/addDogForAdoption', [App\Http\Controllers\DogController::class, 'create'])->name('addDogForAdoption');
 Route::get('/myDogs', [App\Http\Controllers\UserController::class, 'myDogs'])->name('myDogs');
 Route::post('/adopt/{id?}', [App\Http\Controllers\DogController::class, 'adopt'])->name('adopt');
+Route::get('/sent_requests', [App\Http\Controllers\AdoptionRequestController::class, 'AdoptionSentRequests'])->name('sent_requests');
+Route::get('/received_requests', [App\Http\Controllers\AdoptionRequestController::class, 'AdoptionReceivedRequests'])->name('received_requests');
+Route::delete('/request/{id?}', [App\Http\Controllers\AdoptionRequestController::class, 'destroy'])->name('delete_request');
 Route::get('/editDog', [App\Http\Controllers\DogController::class, 'edit'])->name('editDog');
 Route::get('/freeConsultation', [App\Http\Controllers\DogController::class, 'freeConsultation'])->name('freeConsultation');
 Route::get('/dogsBreeds', [App\Http\Controllers\DogController::class, 'dogsBreeds'])->name('dogsBreeds');

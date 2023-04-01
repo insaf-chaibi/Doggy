@@ -119,8 +119,8 @@ class DogController extends Controller
     public function adopt($id)
     {
         $user = Auth::user();
-        $requests=AdoptionRequest::where('user_id',$user->id)->where('dog_id',$id);
-if(!$requests){
+        $requests=AdoptionRequest::where('user_id',$user->id)->where('dog_id',$id)->count();
+if($requests==0){
     AdoptionRequest::create(['dog_id' => $id,'user_id'=>$user->id]);
     return redirect()->back()->with('success', 'Request has been sent successfully');
 }

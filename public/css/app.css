@@ -31,7 +31,7 @@ body {
 a{
     text-decoration: none!important;
     color: #744f1f!important;
-    font-size: 14px; 
+    font-size: 14px;
 }
 a:hover{
     text-decoration: none!important;
@@ -67,7 +67,7 @@ a:hover{
     font-weight: bold;
 }
 .col-6 img{
-    padding: 80px 30px; 
+    padding: 80px 30px;
     padding-top: 10px;
 }
 .btn{
