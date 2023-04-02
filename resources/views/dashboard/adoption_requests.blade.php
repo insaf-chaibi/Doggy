@@ -32,10 +32,7 @@
                             Status
 
                         </th>
-                        <th style="width: 20%" class="text-center">
-                            Options
 
-                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -72,29 +69,7 @@
 
                                 </td>
 
-                                <td class="project-actions text-center">
 
-
-                                    <div class="project-actions justify-content-center d-flex ">
-
-
-                                        @if($request->status==0)
-
-                                            <a href="{{route('toggle_status',$request->id) }}}}"
-                                               class="btn btn-danger btn-sm m-1 bg-success"> <i class="fas fa-check">
-                                                </i>
-                                                Accept</a>
-
-                                        @else
-
-                                            <a href="{{route('toggle_status',$request->id) }}}}"
-                                               class="btn btn-danger btn-sm m-1 bg-danger"> <i class="fas fa-trash">
-                                                </i>
-                                                Cancel</a>
-                                        @endif
-                                    </div>
-
-                                </td>
                             </tr>
                             @endforeach
 

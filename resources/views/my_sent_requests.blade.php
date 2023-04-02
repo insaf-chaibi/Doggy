@@ -47,7 +47,7 @@
 
 
                              <td class="text-center">
-                                 {{$request->name}}
+                                 {{$request->dog_name}}
 
                              </td>
 
@@ -88,6 +88,8 @@
                                                  Delete
                                              </button>
                                          </form>
+                                     @else
+                                         <a class='text-dark'href="{{ route('contact_woner',$request->owner_id) }}" class="href">Contact Owner</a>
                                      @endif
                                  </div>
 

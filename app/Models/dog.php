@@ -9,17 +9,7 @@ class dog extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'image',
-        'name',
-        'age',
-        'weight',
-        'breed',
-        'gender',
-        'vaccinated',
-        'description',
-        'user_id',
-    ];
+    protected $guarded=[];
     // To accept images on database
     public function getImageAttribute($value) {
         if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
@@ -28,9 +18,12 @@ class dog extends Model
         return asset('storage/' . $value);
     }
 
-    public  function  dogs(){
+    public  function  dog(){
         return $this->hasMany(AdoptionRequest::class);
 
+    }
+    public  function user(){
+        return $this->belongsTo(User::class);
     }
 
 

@@ -119,15 +119,19 @@ class DogController extends Controller
     public function adopt($id)
     {
         $user = Auth::user();
-        $requests=AdoptionRequest::where('user_id',$user->id)->where('dog_id',$id)->count();
-if($requests==0){
-    AdoptionRequest::create(['dog_id' => $id,'user_id'=>$user->id]);
-    return redirect()->back()->with('success', 'Request has been sent successfully');
-}
+        $requests = AdoptionRequest::where('user_id', $user->id)->where('dog_id', $id)->count();
+        if ($requests == 0) {
+            AdoptionRequest::create(['dog_id' => $id, 'user_id' => $user->id]);
+            return redirect()->back()->with('success', 'Request has been sent successfully');
+        }
         return redirect()->back()->with('failed', 'You have already add a request for this dog');
 
 
+    }
 
+    public function  showDetails($id){
+        $dog=dog::where('id',$id)->get()->first();
+    return view('dog_details',compact('dog'));
     }
 
     public function freeConsultation()

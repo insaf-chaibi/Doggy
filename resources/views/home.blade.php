@@ -26,10 +26,24 @@
                     <p>Gender : {{ $item->gender }}</p>
                     <p>Vaccinated : {{ $item->vaccinated }}</p>
 
-                    <form action="{{ route('adopt', $item->id)}}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn" >Adopt</button>
-                    </form>
+                   <div class="container">
+                       <div class="row">
+                          <div class="col-6">
+                              <form action="{{ route('adopt', $item->id)}}" method="POST">
+                                  @csrf
+                                  <button type="submit" class="btn" >Adopt</button>
+                              </form>
+
+                          </div>
+                          <div class="col-6">
+                              <a class="btn bg-primary" href="{{ route('details', $item->id)}}" class="href">Details</a>
+                             </button>
+
+                          </div>
+
+
+                       </div>
+                   </div>
                 </div>
             </div>
         @endforeach

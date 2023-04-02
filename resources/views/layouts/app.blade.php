@@ -71,7 +71,8 @@
 
                         @if (Auth::user())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/addDogForAdoption') }}">{{ __('Add a dog for adoption') }}</a>
+                                <a class="nav-link"
+                                   href="{{ url('/addDogForAdoption') }}">{{ __('Add a dog for adoption') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/myDogs') }}">{{ __('My dogs') }}</a>
@@ -81,25 +82,7 @@
                                 <a class="nav-link" href="{{ url('/dogsBreeds') }}">{{ __('Dogs breeds') }}</a>
                             </li>
                         @endif
-                        <li class="nav-item dropdown">
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle shadow-none" id="dropdownMenuButton" type="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-regular fa-paper-plane"></i>My Requests
-                                </button>
 
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{url('received_requests')}}"> My Received Requests</a>
-                                    <a class="dropdown-item" href="{{url('sent_requests')}}">My Sent Requests
-                                    </a>
-                                </div>
-                            </div>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-
-                        </li>
                         <li class="nav-item dropdown">
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle shadow-none" id="dropdownMenuButton" type="button"
@@ -110,12 +93,23 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="{{ url('/profile') }}"><i
                                             class="fa-solid fa-user"></i> {{ __('Profile') }}</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role=='admin')
+
+                                        <a class="dropdown-item" href="{{route('dashboard')}}">
+                                            <i class="fa-solid fa-gear"></i>
+                                            Dashboard
+                                            @endif
+
+                                        </a>
+                                        <a class="dropdown-item" href="{{url('received_requests')}}"> My Received
+                                            Requests</a>
+                                        <a class="dropdown-item" href="{{url('sent_requests')}}">My Sent Requests
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        <i class="fa-solid fa-right-from-bracket"></i>
-                                        {{ __('Logout') }}
-                                    </a>
+                                            <i class="fa-solid fa-right-from-bracket"></i>
+                                            {{ __('Logout') }}
+                                        </a>
                                 </div>
                             </div>
 
